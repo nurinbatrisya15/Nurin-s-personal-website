@@ -1,0 +1,399 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurin's personal websiter</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #e9e4df;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav .nav-item {
+            text-decoration: none;
+            color: black;
+            padding: 10px 20px;
+            background-color: #e9e4df;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav .nav-item:hover {
+            background-color: #d9c4b1;
+            transform: scale(1.05);
+        }
+        nav .nav-item:active {
+            background-color: #c8b89c;
+            transform: scale(0.98);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f2ede7;
+        }
+        .hero h1 {
+            font-size: 32px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .cta-button {
+            padding: 10px 20px;
+            background-color: #d9c4b1;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .content-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .content-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .content-section p {
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .services div {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            width: 200px;
+        }
+        .social-proof {
+            padding: 50px 20px;
+            background-color: #e9e4df;
+            text-align: center;
+        }
+        .social-proof p {
+            font-size: 16px;
+        }
+        .extras {
+            padding: 20px;
+            background-color: #f2ede7;
+            text-align: center;
+        }
+        footer {
+            background-color: #d9c4b1;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        footer .quick-links {
+            display: flex;
+            gap: 10px;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            background-color: #f2ede7;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .mySlides {
+            display: none;
+        }
+        .mySlides img {
+            width: 100%;
+            border-radius: 15px;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+        .text {
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+            color: white;
+            font-size: 18px;
+            padding: 8px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 5px;
+        }
+        .numbertext {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 8px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            font-size: 16px;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .dot.active {
+            background-color: #717171;
+        }
+
+        /* Hover effect for images */
+        .hero-images img {
+            width: 85%;
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .hero-images img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Content Section Styling */
+        .content-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .content-section p {
+            font-size: 16px;
+            margin-bottom: 40px;
+            color: #555;
+        }
+		
+		
+		.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal-width columns */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.grid-item img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.grid-item img:hover {
+    transform: scale(1.05);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <section>
+    <audio controls autoplay loop>
+        <source src="RahsiaTuhan.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</section>
+
+
+        <nav>
+            <a href="#home" class="nav-item">Home</a>
+            <a href="#aboutme" class="nav-item">About Me</a>
+            <a href="#education" class="nav-item">Education</a>
+            <a href="#curriculum" class="nav-item">Curriculum</a>
+            <a href="#contactme" class="nav-item">Contact Me</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Hi, Welcome to my website</h1>
+        <p>Hi, welcome to my website! Here, you’ll find a brief glimpse into what this site is all about—explore, enjoy, and stay awhile!</p>
+
+        <!-- Image Slider -->
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <img src="koko1.jpg" style="width:100%">
+                <div class="text">Ghombau RunderFull</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <img src="family.jpg" style="width:100%">
+                <div class="text">Boslee Family</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <img src="platuna4.jpg" style="width:100%">
+                <div class="text">Platun A4</div>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <br>
+
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+    </section>
+
+    <section id="aboutme" class="hero">
+        <h1>Hi, Welcome to my website</h1>
+        <div class="hero-images">
+            <!-- Add images here -->
+            <img src="nb2.jpg" alt="Image 1" class="image-frame">
+            <img src="nb1.jpg" alt="Image 2" class="image-frame">
+            <img src="nb3.jpg" alt="Image 3" class="image-frame">
+        </div>
+    </section>
+
+    <section id="education" class="content-section">
+    <h2>My Name is Nurin Batrisya</h2>
+    <p>I am 20 years old and this is about me.</p>
+    
+    <section id="education" class="content-section" style="text-align: left;">
+    
+    <ul style="list-style-type: none; margin-left: 20px;">
+        <li>༊*·˚ I'm 20 years old, the eldest among the siblings, with a passion for learning and exploring new things.</li>
+        <li>༊*·˚ I’m currently pursuing my studies in a field that excites me.</li>
+        <li>༊*·˚ I am the eldest among four siblings, with a deep passion for learning and a curious spirit that drives me to explore new things.</li>
+        <li>༊*·˚ I believe in growth through experience and love discovering the endless possibilities life has to offer.</li>
+        <li>༊*·˚ Currently, I am pursuing my studies in a field that truly excites me and aligns with my interests.</li>
+        <li>༊*·˚ Through this space, I aim to share my journey, thoughts, and personal experiences, hoping to inspire, connect, and engage with those who share similar passions and curiosities.</li>
+        <li>༊*·˚ This is a place where I can reflect, grow, and learn alongside all of you.</li>
+    </ul>
+</section>
+
+
+
+    <section id="curriculum" class="content-section">
+        <h2>My Curriculum</h2>
+        <p>Here, I showcase my educational journey, projects, and achievements that have helped shape my path.</p>
+		<p>During my time at university, I served as a Kesatria Commander for 4 semesters. It was a challenging yet rewarding experience that taught me discipline, leadership, and teamwork.</p>
+       <p>Here, I showcase my educational journey, projects, and achievements that have helped shape my path.</p>
+
+<p>During my time at university, I had the honor of serving as a Kesatria Commander for 4 semesters. It was a challenging yet rewarding experience that taught me discipline, leadership, and teamwork. I am proudly from Batch 8, and I hold them very dear to my heart. They have been there for me through thick and thin, offering support during both the good and tough times. I will always cherish the bond we share and the memories we've created together.#janganmati</p>
+    <div class="image-grid">
+        <div class="grid-item"><img src="koko2.jpg" alt="Image 1"></div>
+        <div class="grid-item"><img src="koko5.jpeg" alt="Image 2"></div>
+        <div class="grid-item"><img src="koko4.jpg" alt="Image 3"></div>
+        <div class="grid-item"><img src="koko3.jpg" alt="Image 4"></div>
+        <div class="grid-item"><img src="koko6.jpg" alt="Image 5"></div>
+
+    
+    </div>
+</section>
+
+
+    <<section id="contactme" class="content-section">
+    <h2>Contact Me</h2>
+    <p>If you have any questions or would like to get in touch, feel free to reach out to me!</p>
+    <form name="form1" method="post" action="mailto:nurinbatrisya15@gmail.com">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message"></textarea><br><br>
+        <input type="submit" value="Send">
+    </form>
+</section>
+
+        </form>
+    </section>
+
+    <footer>
+        <div class="quick-links">
+            <a href="#home">Home</a>
+            <a href="#aboutme">About Me</a>
+            <a href="#education">Education</a>
+            <a href="#curriculum">Curriculum</a>
+            <a href="#contactme">Contact Me</a>
+        </div>
+        <div>© 2024 My Website</div>
+    </footer>
+
+   <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1; }
+        if (n < 1) { slideIndex = slides.length; }
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (var i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";  
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+
+
+</head>
+</body>
